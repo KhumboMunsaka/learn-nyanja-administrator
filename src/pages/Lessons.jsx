@@ -1,5 +1,5 @@
 function Lessons() {
-  return <div>Lessons</div>;
+  return <div></div>;
 }
 
 export default Lessons;

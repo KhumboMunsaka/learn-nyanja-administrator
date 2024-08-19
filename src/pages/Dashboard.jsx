@@ -12,7 +12,6 @@ function Dashboard() {
       navigate("/"); // Redirect to home if not logged in
     }
   }, [user, navigate]);
-  console.log(user);
   return (
     <>
       <h3>Hi Administrator!</h3>
