@@ -81,11 +81,12 @@ function AdminForm() {
       console.error("No audio selected");
       return;
     }
-    const storageRef = ref(storage, `audios/${selectedAudio}${word}`);
+    const fileName = `${word}.webm`; // Unique file name using the word and a timestamp
+    const storageRef = ref(storage, `audios/${fileName}`);
 
-    // 'file' comes from the Blob or File API
+    // Upload the audio file to Firebase Storage
     uploadBytes(storageRef, selectedAudio).then((snapshot) => {
-      console.log("Uploaded a blob or file!", selectedAudio);
+      console.log("Uploaded a blob or file!", snapshot.metadata);
     });
   }
 
