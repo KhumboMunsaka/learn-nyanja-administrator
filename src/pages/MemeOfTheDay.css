@@ -1,0 +1,11 @@
+/* Custom CSS for CKEditor toolbar */
+.ck-toolbar {
+  display: flex;
+  justify-content: space-around;
+}
+.ck-toolbar .ck-button {
+  margin-left: 3em;
+  background-color: wheat;
+  height: 100%; /* Adjust the height of the toolbar buttons */
+  font-size: 12px; /* Reduce the font size */
+}

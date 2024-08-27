@@ -17,13 +17,7 @@ function AdminForm() {
   const [meanings, setMeanings] = useState([
     { translation: "", partOfSpeech: "" },
   ]);
-  // const addAudioElement = (blob) => {
-  //   const url = URL.createObjectURL(blob);
-  //   const audio = document.createElement("audio");
-  //   audio.src = url;
-  //   audio.controls = true;
-  //   document.body.appendChild(audio);
-  // };
+
   // This effect runs once when the component mounts, and sets up an authentication state listener.
   useEffect(() => {
     const auth = getAuth();
