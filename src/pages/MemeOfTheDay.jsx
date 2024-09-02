@@ -28,12 +28,13 @@ function MemeOfTheDay() {
   // Function to format the date as "Wed 21 Aug 2024"
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-GB", {
+    const formattedDate = date.toLocaleDateString("en-GB", {
       weekday: "short", // e.g., "Wed"
       day: "numeric", // e.g., "21"
       month: "short", // e.g., "Aug"
       year: "numeric", // e.g., "2024"
     });
+    return formattedDate.replace(/,/g, ""); // Removes commas from the formatted date
   };
   console.log(memeDate);
   const handleSubmit = async () => {
@@ -63,6 +64,7 @@ function MemeOfTheDay() {
       alert("The Meme has been uploaded successfully");
     });
   }
+  console;
   return (
     <div>
       {/* Header */}
