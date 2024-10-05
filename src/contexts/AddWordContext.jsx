@@ -11,6 +11,7 @@ export const AddWordProvider = ({ children }) => {
     { translation: "", partOfSpeech: "" },
   ]);
   const [selectedAudio, setSelectedAudio] = useState(null);
+  const [isAWordSelected, setIsAWordSelected] = useState(false);
 
   const handleWordChange = (e) => setWord(e.target.value);
 
