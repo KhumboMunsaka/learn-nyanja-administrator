@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import PageNavigation from "../components/PageNavigation";
-
+import styles from "../styles/Dashboard.module.css";
 function Dashboard() {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -13,11 +13,13 @@ function Dashboard() {
     }
   }, [user, navigate]);
   return (
-    <>
+    <main>
       <h3>Hi Administrator!</h3>
-      <PageNavigation />
-      <Outlet />
-    </>
+      <section className={styles.dashboard}>
+        <PageNavigation />
+        <Outlet />
+      </section>
+    </main>
   );
 }
 

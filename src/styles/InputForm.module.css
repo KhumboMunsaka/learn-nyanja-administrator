@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stopRecording {
+  background-color: #4752c6;
+  font-size: large;
+  max-width: 10rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.stopRecording:hover {
+  background-color: #363e9a;
+}
+.inputGroup,
+.meaningGroup,
+.audioGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  gap: 0.5rem; /* Space between inputs and labels */
+}
+.wordMeaning {
+  display: flex;
+  max-width: 80vw;
+  margin-top: 2rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: end;
+}
+.wordMeaning label {
+  color: white;
+}
+.textInput,
+.selectInput {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.textInput:focus,
+.selectInput:focus {
+  outline: none;
+  border-color: #4752c6;
+  box-shadow: 0 0 5px rgba(71, 82, 198, 0.5);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.addMeaningButton,
+.removeButton,
+.submitButton {
+  padding: 0.8rem 1rem;
+  margin-top: 1.5rem 0rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #4752c6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addMeaningButton:hover,
+.removeButton:hover,
+.submitButton:hover {
+  background-color: #363e9a;
+}
+
+.addMeaningButton {
+  align-self: flex-start; /* Align to the start of the form */
+}
+
+.removeButton {
+  background-color: #d9534f;
+  height: 80%;
+}
+
+.removeButton:hover {
+  background-color: #c12e2a;
+}
+
+.audioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stopRecording {
+  background-color: #4752c6;
+  font-size: large;
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.stopRecording:hover {
+  background-color: #363e9a;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .inputGroup,
+  .meaningGroup,
+  .audioGroup {
+    max-width: 700px;
+  }
+
+  .textInput,
+  .selectInput {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  label {
+    font-size: 1.1rem;
+  }
+
+  .addMeaningButton,
+  .removeButton,
+  .submitButton {
+    font-size: 1.1rem;
+  }
+}

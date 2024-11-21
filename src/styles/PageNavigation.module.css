@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  /* width: 50vw; */
+}
+.container li {
+  list-style-type: none;
+  padding: 3rem;
+}
+
+.link {
+  color: white;
+  font-size: large;
+  text-decoration: none;
+}
+
+.link:hover {
+  opacity: 0.7;
+  color: white;
+}

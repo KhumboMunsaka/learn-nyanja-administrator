@@ -6,17 +6,9 @@ import {
   ClassicEditor,
   Bold,
   Essentials,
-  Heading,
-  Indent,
-  IndentBlock,
   Italic,
-  Link,
-  List,
-  MediaEmbed,
   Paragraph,
-  Table,
   Undo,
-  verifyLicense,
 } from "ckeditor5";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
@@ -25,18 +17,18 @@ function MemeOfTheDay() {
   const [translation, setTranslation] = useState(``);
   const [selectedImage, setSelectedImage] = useState(null);
   const [memeDate, setMemeDate] = useState(null);
-  // Function to format the date as "Wed 21 Aug 2024"
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const formattedDate = date.toLocaleDateString("en-GB", {
-      weekday: "short", // e.g., "Wed"
-      day: "numeric", // e.g., "21"
-      month: "short", // e.g., "Aug"
-      year: "numeric", // e.g., "2024"
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+      year: "numeric",
     });
-    return formattedDate.replace(/,/g, ""); // Removes commas from the formatted date
+    return formattedDate.replace(/,/g, "");
   };
-  console.log(memeDate);
+
   const handleSubmit = async () => {
     try {
       await addDoc(collection(db, "mods"), {
@@ -49,37 +41,34 @@ function MemeOfTheDay() {
       console.error("Error adding Words: ", error);
     }
   };
-  function handleImage() {
+
+  const handleImage = () => {
     const storage = getStorage();
 
     if (!selectedImage) {
       console.error("No image selected");
       return;
     }
-    const fileName = `meme_of_the_day${memeDate}`; // Unique file name using the word and a timestamp
+    const fileName = `meme_of_the_day${memeDate}`;
     const storageRef = ref(storage, `mods/${fileName}`);
 
-    // 'file' comes from the Blob or File API
-    uploadBytes(storageRef, selectedImage).then((snapshot) => {
+    uploadBytes(storageRef, selectedImage).then(() => {
       alert("The Meme has been uploaded successfully");
     });
-  }
-  console;
-  return (
-    <div>
-      {/* Header */}
-      <h3>Upload the meme of the day</h3>
+  };
 
-      {/* Conditionally render the selected image if it exists */}
+  return (
+    <div className="meme-container">
+      <h3 className="meme-title">Upload the Meme of the Day</h3>
+
       {selectedImage && (
-        <>
-          <div>
-            <img
-              alt="not found"
-              width={"250px"}
-              src={URL.createObjectURL(selectedImage)}
-            />
-            <br /> <br />
+        <div className="meme-preview">
+          <img
+            alt="Preview"
+            className="meme-image"
+            src={URL.createObjectURL(selectedImage)}
+          />
+          <div className="meme-editor">
             <CKEditor
               editor={ClassicEditor}
               config={{
@@ -87,31 +76,36 @@ function MemeOfTheDay() {
                   items: ["undo", "redo", "|", "bold", "italic"],
                 },
                 plugins: [Bold, Essentials, Italic, Paragraph, Undo],
-                initialData: "Put in the translation you have",
               }}
               onChange={(event, editor) => {
                 const data = editor.getData();
                 setTranslation(data);
               }}
             />
-            <h5>Set Date</h5>
+            <h5 className="meme-date-label">Set Date</h5>
             <input
               type="date"
+              className="meme-date-input"
               onChange={(e) => setMemeDate(formatDate(e.target.value))}
             />
-            <button onClick={() => handleSubmit()}>submit</button>
-            <button onClick={() => setSelectedImage(null)}>Remove</button>
           </div>
-        </>
+          <div className="meme-actions">
+            <button className="meme-btn submit" onClick={handleSubmit}>
+              Submit
+            </button>
+            <button
+              className="meme-btn remove"
+              onClick={() => setSelectedImage(null)}
+            >
+              Remove
+            </button>
+          </div>
+        </div>
       )}
 
-      <br />
-
-      {/* Input element to select an image file */}
       <input
         type="file"
-        name="myImage"
-        // Event handler to capture file selection and update the state
+        className="meme-file-input"
         onChange={(event) => {
           setSelectedImage(event.target.files[0]);
         }}

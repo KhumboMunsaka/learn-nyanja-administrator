@@ -1,11 +1,152 @@
-/* Custom CSS for CKEditor toolbar */
-.ck-toolbar {
-  display: flex;
-  justify-content: space-around;
+/* Container styles */
+.meme-container {
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+.meme-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Preview Section */
+.meme-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.meme-image {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.meme-editor {
+  width: 100%;
+}
+
+.meme-date-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.meme-date-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.meme-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meme-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.meme-btn.submit {
+  background-color: #4caf50;
+  color: white;
+}
+
+.meme-btn.remove {
+  background-color: #f44336;
+  color: white;
+}
+
+/* File input */
+.meme-file-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* CKEditor Toolbar Styling */
+.ck-toolbar {
+  border-radius: 8px; /* Match editor border radius */
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Center toolbar buttons */
+  align-items: center;
+}
+
 .ck-toolbar .ck-button {
-  margin-left: 3em;
-  background-color: wheat;
-  height: 100%; /* Adjust the height of the toolbar buttons */
-  font-size: 12px; /* Reduce the font size */
+  background-color: #4752c6;
+  color: #ffffff; /* White text */
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem; /* Slightly smaller font for buttons */
+  cursor: pointer;
+  height: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.ck-sticky-panel__content {
+  width: 100%;
+}
+.ck-toolbar__items {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.ck-toolbar .ck-button:hover {
+  background-color: #e0e0e0;
+}
+.ck-editor__main {
+  background-color: #121212;
+}
+.ck-editor__main {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem; /* Base font size for readability */
+  line-height: 1.6; /* Adequate line height for easier reading */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  max-width: 20rem;
+  word-wrap: break-word; /* Break long words */
+  word-break: break-word; /* Prevent overflow of long words */
+  white-space: pre-wrap; /* Preserve whitespace but wrap text */
+}
+.ck-editor__main p:focus {
+  border: none;
+}
+/* Mobile-first approach */
+@media (max-width: 600px) {
+  .meme-container {
+    padding: 0.5rem;
+  }
+
+  .meme-title {
+    font-size: 1.25rem;
+  }
+
+  .meme-image {
+    max-width: 200px;
+  }
+
+  .meme-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
 }

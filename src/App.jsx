@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import MemeOfTheDay from "./pages/MemeOfTheDay";
 import Dictionary from "./pages/Dictionary";
 import { DictionaryProvider } from "./contexts/DictionaryContext";
+import { LessonsProvider } from "./contexts/LessonsContext";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           path="dashboard"
           element={
             <DictionaryProvider>
-              <Dashboard />
+              <LessonsProvider>
+                <Dashboard />
+              </LessonsProvider>
             </DictionaryProvider>
           }
         >
