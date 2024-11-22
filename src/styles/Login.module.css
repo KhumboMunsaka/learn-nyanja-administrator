@@ -81,7 +81,40 @@
 .button:hover {
   background-color: #a04931; /* Slightly darker shade */
 }
+.resetFormContainer {
+  padding: 2rem; /* Ensure consistent spacing for reset form */
+  display: grid;
+  padding: 5rem;
+  background-color: #f2e8cf;
+  border: 1px solid rgb(6, 5, 5);
+  border-radius: 15px;
+}
 
+.inputGroupReset {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.inputGroupReset label {
+  font-size: 24px;
+}
+.inputGroupReset input {
+  padding: 1rem;
+  font-size: 2rem;
+
+  border-radius: 15px;
+  border: 2px solid transparent;
+  outline: none; /* Removes the default outline */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+.resetForm p {
+  font-size: 1.5rem;
+}
+.inputGroupReset input:focus {
+  border-color: #bc6c25; /* Add a nice border color */
+  box-shadow: 0 0 8px rgba(171, 96, 21, 0.5); /* Glowing effect */
+  background-color: #f9f9f9; /* Subtle background change */
+}
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr; /* Stack elements vertically */
@@ -117,10 +150,6 @@
   }
 
   .loginFormContainer {
-  }
-
-  .resetFormContainer {
-    padding: 2rem; /* Ensure consistent spacing for reset form */
   }
 }
 

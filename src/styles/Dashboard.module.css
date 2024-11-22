@@ -2,6 +2,7 @@
   width: 100%;
   display: grid;
   height: 100%;
+  background: linear-gradient(to bottom right, #f5f4ef, #d6ccc2);
 }
 .dashboardContainer ul {
   align-items: start;
@@ -9,7 +10,23 @@
 .dashboard {
   display: none;
 }
-
+.signOutButton {
+  background-color: #c05e3d;
+  justify-content: end;
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin: 3rem;
+  max-width: 20%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+.signOutButton:hover {
+  background-color: #a04931; /* Slightly darker shade */
+}
 .smallScreen {
   color: #ff4444; /* Vibrant but not overly bright red */
   font-family: "Arial", sans-serif; /* Clean, readable font */

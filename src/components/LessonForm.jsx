@@ -5,16 +5,17 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 import "../styles/Ckeditor.css";
 import styles from "../styles/LessonForm.module.css";
+import SpinnerItem from "./SpinnerItem";
 
 function LessonForm() {
   const [title, setTitle] = useState("");
   const [section, setSection] = useState("");
   const [lessonText, setLessonText] = useState("");
   const [showModal, setShowModal] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     if (!title || !section || !lessonText) {
       alert("Please fill in all fields");
       return;
@@ -31,6 +32,7 @@ function LessonForm() {
         section,
         "sublessons"
       );
+      setIsLoading(false);
 
       const lessonDocRef = doc(sublessonsCollectionRef, title);
 
@@ -49,9 +51,13 @@ function LessonForm() {
       console.error("Error adding lesson: ", error);
       alert("Failed to add lesson. Try again.");
     }
+    setIsLoading(false);
   };
 
-  const handleCancel = () => setShowModal(false); // Close the modal
+  const handleCancel = () => {
+    setShowModal(false); // Close the modal
+    setIsLoading(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -96,7 +102,7 @@ function LessonForm() {
             }}
           />
           <button type="submit" className={styles.submitLesson}>
-            Submit Lesson
+            {!isLoading ? "Submit Lesson" : <SpinnerItem />}
           </button>
         </div>
       </form>

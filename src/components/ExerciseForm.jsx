@@ -10,6 +10,7 @@ import {
   setDoc,
 } from "firebase/firestore"; // Firestore methods
 import styles from "../styles/ExerciseForm.module.css";
+import SpinnerItem from "./SpinnerItem";
 
 function ExerciseForm() {
   // State to store questions, selected section, and selected lesson title
@@ -24,7 +25,7 @@ function ExerciseForm() {
   const [section, setSection] = useState("");
   const [lessonTitles, setLessonTitles] = useState([]);
   const [selectedLesson, setSelectedLesson] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
   const fetchLessonTitles = async (section) => {
     if (!section) return; // If no section is selected, return early
   };
@@ -98,7 +99,7 @@ function ExerciseForm() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     if (!selectedLesson || !section) {
       alert("Please select a lesson and section.");
       return;
@@ -135,9 +136,11 @@ function ExerciseForm() {
           points: 10,
         },
       ]);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error adding exercise: ", error);
       alert("Failed to add exercise. Try again.");
+      setIsLoading(false);
     }
   };
 
@@ -244,7 +247,9 @@ function ExerciseForm() {
         </div>
       </div>
 
-      <button type="submit">Submit Exercise</button>
+      <button type="submit">
+        {!isLoading ? "Submit Exercise" : <SpinnerItem />}
+      </button>
     </form>
   );
 }

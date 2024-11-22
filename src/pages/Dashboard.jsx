@@ -33,7 +33,9 @@ function Dashboard() {
       <section className={styles.dashboard}>
         <Outlet />
       </section>
-      <button onClick={SignOut}>Sign out</button>
+      <button onClick={SignOut} className={styles.signOutButton}>
+        Sign out
+      </button>
     </main>
   );
 }

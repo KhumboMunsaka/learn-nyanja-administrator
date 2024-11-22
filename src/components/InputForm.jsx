@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AddWordContext from "../contexts/AddWordContext";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import styles from "../styles/InputForm.module.css";
+import SpinnerItem from "./SpinnerItem";
 function InputForm() {
   const {
     word,
@@ -14,8 +15,8 @@ function InputForm() {
     handleSubmit,
     handleAudio,
     setSelectedAudio,
+    isLoading,
   } = useContext(AddWordContext);
-
   const recorderControls = useAudioRecorder();
 
   return (
@@ -91,7 +92,7 @@ function InputForm() {
           Stop Recording
         </span>
         <button onClick={() => handleAudio()} className={styles.submitButton}>
-          Submit Word To Dictionary
+          {!isLoading ? "Submit Word To Dictionary" : <SpinnerItem />}
         </button>
       </div>
     </form>

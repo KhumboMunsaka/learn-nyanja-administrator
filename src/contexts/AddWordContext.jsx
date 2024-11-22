@@ -12,6 +12,7 @@ export const AddWordProvider = ({ children }) => {
   ]);
   const [selectedAudio, setSelectedAudio] = useState(null);
   const [isAWordSelected, setIsAWordSelected] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleWordChange = (e) => setWord(e.target.value);
 
@@ -39,24 +40,37 @@ export const AddWordProvider = ({ children }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await addDoc(collection(db, "Nyanja to English"), { word, meanings });
       setWord("");
       setMeanings([{ translation: "", partOfSpeech: "" }]);
       handleAudio();
       alert("Word added successfully!");
+      setIsLoading(false);
     } catch (error) {
-      console.error("Error adding document: ", error);
+      alert("Error Adding the Word");
+      setIsLoading(false);
     }
+    setIsLoading(false);
   };
 
   const handleAudio = () => {
-    // console.log(selectedAudio);
-    const storage = getStorage();
-    if (!selectedAudio) {
-      console.error("No audio selected");
+    setIsLoading(true);
+
+    if (word == "" || meanings.translation == "") {
+      setIsLoading(false);
       return;
     }
+    const storage = getStorage();
+    if (!selectedAudio) {
+      setIsLoading(false);
+
+      alert("No audio selected");
+      return;
+    }
+    setIsLoading(false);
+
     const fileName = `${word}.webm`; // Unique file name using the word and a timestamp
     const storageRef = ref(storage, `audios/${fileName}`);
 
@@ -64,6 +78,7 @@ export const AddWordProvider = ({ children }) => {
     uploadBytes(storageRef, selectedAudio).then((snapshot) => {
       console.log("Uploaded a blob or file!", snapshot.metadata);
     });
+    setIsLoading(false);
   };
 
   return (
@@ -80,6 +95,7 @@ export const AddWordProvider = ({ children }) => {
         handleSubmit,
         handleAudio,
         setSelectedAudio,
+        isLoading,
       }}
     >
       {children}
