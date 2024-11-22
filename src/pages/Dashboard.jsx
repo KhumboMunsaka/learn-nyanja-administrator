@@ -16,6 +16,7 @@ function Dashboard() {
   function SignOut() {
     signOut(auth)
       .then(() => {
+        navigate("/");
         // Sign-out successful.
       })
       .catch((error) => {
@@ -32,7 +33,7 @@ function Dashboard() {
       <section className={styles.dashboard}>
         <Outlet />
       </section>
-      {/* <button onClick={SignOut}>Sign out</button> */}
+      <button onClick={SignOut}>Sign out</button>
     </main>
   );
 }

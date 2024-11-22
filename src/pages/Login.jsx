@@ -82,7 +82,9 @@ function Login() {
         {!resetEmail ? (
           <div className={styles.loginFormContainer}>
             <form onSubmit={HandleSubmit} className={styles.loginForm}>
-              <p className={styles.errorMessage}>{errorMessage}</p>
+              <p className={styles.errorMessage} style={{ color: "red" }}>
+                {errorMessage}
+              </p>
               <div className={styles.inputGroup}>
                 <label htmlFor="email" className={styles.label}>
                   Email Address
@@ -93,7 +95,9 @@ function Login() {
                   name="email"
                   value={email}
                   placeholder="Enter You Email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={
+                    ((e) => setEmail(e.target.value), setErrorMessage(null))
+                  }
                   className={styles.input}
                 />
               </div>
@@ -106,7 +110,9 @@ function Login() {
                   id="password"
                   name="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={
+                    ((e) => setPassword(e.target.value), setErrorMessage(null))
+                  }
                   placeholder="Enter your password"
                   className={styles.input}
                 />
