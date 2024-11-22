@@ -7,6 +7,9 @@
 .container h1 {
   color: #bc6c25;
 }
+.errorMessage {
+  color: red;
+}
 .backgroundImage {
   background-image: url("https://images.pexels.com/photos/247819/pexels-photo-247819.jpeg?auto=compress&cs=tinysrgb&w=600");
   background-repeat: no-repeat;

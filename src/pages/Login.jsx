@@ -28,19 +28,26 @@ function Login() {
   function HandleSubmit(e) {
     e.preventDefault();
 
-    // add validation
-    if (
-      email !== "khumbolane11@gmail.com" ||
-      email !== "chimschibuta@gmail.com" ||
-      email !== "cheembelabusi@gmail.com" ||
-      email !== "malipengalusekelo77@gmail.com" ||
-      email !== "lukundonkapambala@gmail.com" ||
-      email !== "luzandombewe68@gmail.com"
-    ) {
+    // List of valid admin emails
+    const validAdminEmails = [
+      "khumbolane11@gmail.com",
+      "chimschibuta@gmail.com",
+      "cheembelabusi@gmail.com",
+      "malipengalusekelo77@gmail.com",
+      "lukundonkapambala@gmail.com",
+      "luzandombewe68@gmail.com",
+    ];
+
+    // Check if the email is in the list of valid admin emails
+    if (!validAdminEmails.includes(email)) {
       setErrorMessage("This user is not an admin");
       return;
     }
-
+    // email !== "chimschibuta@gmail.com" ||
+    // email !== "cheembelabusi@gmail.com" ||
+    // email !== "malipengalusekelo77@gmail.com" ||
+    // email !== "lukundonkapambala@gmail.com" ||
+    // email !== "luzandombewe68@gmail.com"
     setErrorMessage(null);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
