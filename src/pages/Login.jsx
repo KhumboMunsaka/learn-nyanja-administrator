@@ -39,6 +39,7 @@ function Login() {
       "malipengalusekelo77@gmail.com",
       "lukundonkapambala@gmail.com",
       "luzandombewe68@gmail.com",
+      "elielsylviakayumba@gmail.com",
     ];
     if (email == "" || password == " ") {
       setErrorMessage("Please Fill In All Fields");
