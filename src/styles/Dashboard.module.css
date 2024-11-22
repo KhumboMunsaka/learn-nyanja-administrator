@@ -1,6 +1,46 @@
 .dashboard {
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
-  align-items: center;
+  background: linear-gradient(to bottom right, #f5f4ef, #d6ccc2);
+}
+
+.dashboardContainer {
+  width: 100%;
+  display: grid;
+  height: 100%;
+}
+.dashboardContainer ul {
+  align-items: start;
+}
+
+.smallScreen {
+  color: #ff4444; /* Vibrant but not overly bright red */
+  font-family: "Arial", sans-serif; /* Clean, readable font */
+  font-size: 1.5rem; /* Initial font size */
+  text-align: center; /* Center align the text */
+  padding: 20px;
+  animation: increaseSize 5s infinite ease-in-out; /* Smooth size change */
+}
+/* Keyframes for size increase */
+@keyframes increaseSize {
+  0% {
+    transform: scale(1); /* Default size */
+  }
+  50% {
+    transform: scale(1.1); /* Slightly larger */
+  }
+  100% {
+    transform: scale(1); /* Back to default */
+  }
+}
+
+/* Even larger screens - for desktops */
+@media only screen and (min-width: 1024px) {
+  .dashboard {
+    display: flex;
+  }
+  .smallScreen {
+    display: none;
+  }
 }

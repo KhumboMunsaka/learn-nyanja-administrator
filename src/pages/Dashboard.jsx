@@ -12,13 +12,26 @@ function Dashboard() {
       navigate("/"); // Redirect to home if not logged in
     }
   }, [user, navigate]);
+
+  function SignOut() {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  }
   return (
-    <main>
-      <h3>Hi Administrator!</h3>
+    <main className={styles.dashboardContainer}>
+      <PageNavigation />
+      <h3 className={styles.smallScreen}>
+        Please Revert to using a larger screen to add lessons
+      </h3>
       <section className={styles.dashboard}>
-        <PageNavigation />
         <Outlet />
       </section>
+      {/* <button onClick={SignOut}>Sign out</button> */}
     </main>
   );
 }

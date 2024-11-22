@@ -1,141 +1,53 @@
-/* Red text with size increase animation */
-.smallScreen {
-  color: #ff4444; /* Vibrant but not overly bright red */
-  font-family: "Arial", sans-serif; /* Clean, readable font */
-  font-size: 1.5rem; /* Initial font size */
-  text-align: center; /* Center align the text */
-  padding: 20px;
-  animation: increaseSize 5s infinite ease-in-out; /* Smooth size change */
+.container {
+  padding: 1rem;
+  min-height: 80vh;
 }
-
-/* Keyframes for size increase */
-@keyframes increaseSize {
-  0% {
-    transform: scale(1); /* Default size */
-  }
-  50% {
-    transform: scale(1.1); /* Slightly larger */
-  }
-  100% {
-    transform: scale(1); /* Back to default */
-  }
+.container h3 {
+  font-size: 32px;
 }
-
-.container form {
-  display: none;
-}
-.lessonTitle,
-.section {
+.container > form > div {
   display: flex;
   flex-direction: column;
-}
-
-/* Even larger screens - for desktops */
-@media only screen and (min-width: 1024px) {
-  .container form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .smallScreen {
-    display: none;
-  }
-}
-/* Container styling */
-.container {
-  background-color: #1d1d1d; /* Light background for contrast */
-  border-radius: 10px; /* Rounded edges */
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  max-width: 600px;
-  margin: 20px auto; /* Center container */
-  font-family: "Arial", sans-serif;
-}
-
-/* Form title */
-.container form h3 {
-  color: white;
-
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
-/* Lesson title field */
-.lessonTitle label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.lessonTitle input {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 100%;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-/* Section dropdown */
-.section label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.section select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 100%;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-  background-color: #1e1d1d;
-  color: white;
-}
-
-/* Lesson text editor */
-.lessonText label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.lessonText {
-  width: 100%;
-  margin-bottom: 20px;
   text-align: left;
+  padding: 0.6rem;
 }
-
-.ck-editor__editable {
-  border: 1px solid #ddd;
+.container form {
+  padding: 3rem;
+}
+.container > form input,
+.container > form select {
+  width: 100%;
+  padding: 0.5rem;
   border-radius: 5px;
-  padding: 10px;
-  min-height: 150px;
-  box-sizing: border-box;
-  background-color: #fff;
-  font-size: 1rem;
+  font-weight: bold;
+  font-size: 28px;
+  color: black;
+  border: 2px solid transparent;
+  outline: none; /* Removes the default outline */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+.container > form input:focus {
+  border-color: #bc6c25; /* Add a nice border color */
+  box-shadow: 0 0 8px rgba(171, 96, 21, 0.5); /* Glowing effect */
+  background-color: #ffffff; /* Subtle background change */
+}
+.container > form label {
+  color: #080808;
+  font-size: 28px;
 }
 
-/* Button styling (optional if you add a submit button) */
-.container form button {
-  padding: 10px 20px;
-  background-color: #ff4444;
-  color: #fff;
+.container > form button {
+  background-color: #c05e3d;
+  font-size: 1.5rem;
+  padding: 1rem;
+  max-width: 20%;
+  color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
+  border-radius: 15px;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
-
-.container form button:hover {
-  background-color: #cc3333;
-}
-.submitLesson {
-  background-color: #4752c6 !important;
+.container > form button:hover {
+  background-color: #a04931; /* Slightly darker shade */
 }

@@ -1,131 +1,142 @@
-/* Base styles - optimized for mobile devices */
 .container {
-  padding: 1rem;
   margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
 }
-.container h1,
-p {
-  color: white;
+.container h1 {
+  color: #bc6c25;
 }
-.heading {
-  text-align: center;
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 1rem;
+.backgroundImage {
+  background-image: url("https://images.pexels.com/photos/247819/pexels-photo-247819.jpeg?auto=compress&cs=tinysrgb&w=600");
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the div */
+  background-position: center; /* Centers the image */
 }
 
-.loginFormContainer,
-.resetFormContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.loginFormContainer {
+  display: grid;
+  padding: 5rem;
+  background-color: #f2e8cf;
+  border: 1px solid rgb(6, 5, 5);
+  border-radius: 15px;
+}
+.form {
+  background-color: #c2c5aa;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.form h1 {
+  place-self: center;
+  text-align: center;
+  font-size: 48px;
 }
 
 .loginForm,
-.resetForm {
+.loginForm > div {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+.loginForm label,
+.loginForm input {
+  font-size: 2rem;
+  text-align: left;
+}
+.loginForm label {
+  color: #bc6c25;
+}
+.loginForm input {
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  outline: none; /* Removes the default outline */
+  transition: all 0.3s ease; /* Smooth transition effect */
 }
 
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.label {
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-.input {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-}
-
-.input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
-
-.buttonGroup {
-  display: flex;
-  justify-content: center;
+/* Styles when the input is focused */
+.loginForm input:focus {
+  border-color: #bc6c25; /* Add a nice border color */
+  box-shadow: 0 0 8px rgba(171, 96, 21, 0.5); /* Glowing effect */
+  background-color: #f9f9f9; /* Subtle background change */
 }
 
 .button {
-  background-color: #4752c6;
+  background-color: #c05e3d;
+  font-size: 1.5rem;
+  padding: 1rem;
   color: white;
-  padding: 0.75rem 1.5rem;
+  font-weight: bold;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 15px;
+  margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
-
 .button:hover {
-  background-color: #363e9a;
+  background-color: #a04931; /* Slightly darker shade */
 }
 
-.linkButton {
-  background: none;
-  border: none;
-  color: #007bff;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.linkButton:hover {
-  color: #363e97;
-}
-
-.errorMessage,
-.resetMessage {
-  color: #e63946;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* Larger screens - for tablets and desktops */
-@media only screen and (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
-    max-width: 480px;
-    padding: 2rem;
+    grid-template-columns: 1fr; /* Stack elements vertically */
+    gap: 2rem; /* Add spacing between sections */
   }
 
-  .heading {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+  .backgroundImage {
+    display: none; /* Hide background image on small screens */
+  }
+
+  .form {
+    width: 100%; /* Reduce form width */
+    height: 100%; /* Allow form height to adjust based on content */
+    padding: 2rem; /* Add padding for better spacing */
+  }
+
+  .form h1 {
+    font-size: 2rem; /* Smaller heading size */
+  }
+
+  .loginForm label,
+  .loginForm input {
+    font-size: 1.2rem; /* Reduce font size */
+  }
+
+  .loginForm input {
+    padding: 0.8rem; /* Adjust input padding */
   }
 
   .button {
-    padding: 1rem 2rem;
+    font-size: 1.2rem; /* Smaller button text size */
+    padding: 0.8rem; /* Adjust button padding */
+  }
+
+  .loginFormContainer {
+  }
+
+  .resetFormContainer {
+    padding: 2rem; /* Ensure consistent spacing for reset form */
   }
 }
 
-/* Even larger screens - for desktops */
-@media only screen and (min-width: 1024px) {
-  .container {
-    max-width: 600px;
+@media (max-width: 480px) {
+  .form h1 {
+    font-size: 1.5rem; /* Further reduce heading size */
   }
 
-  .heading {
-    font-size: 1.75rem;
-  }
-
-  .input {
-    padding: 1rem;
+  .loginForm input {
+    padding: 0.6rem; /* Compact input padding */
   }
 
   .button {
-    padding: 1.25rem 2.5rem;
+    font-size: 1rem; /* Smaller button text size for very small screens */
+    padding: 0.6rem; /* Compact button padding */
+  }
+
+  .loginFormContainer,
+  .resetFormContainer {
+    padding: 1.5rem; /* Reduce padding for smaller devices */
   }
 }

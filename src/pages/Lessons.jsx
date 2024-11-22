@@ -1,17 +1,14 @@
 import { useState } from "react";
 import LessonForm from "../components/LessonForm";
 import ExerciseForm from "../components/ExerciseForm";
-
+import styles from "../styles/Lessons.module.css";
 function Lessons() {
   const [addExercise, setAddExercise] = useState(false);
   return (
-    <div>
-      <div>
-        <button onClick={() => setAddExercise(!addExercise)}>
-          {addExercise ? "Add Lesson?" : "Add Exercise?"}
-        </button>
-      </div>
-
+    <div className={styles.lessonsContainer}>
+      <button onClick={() => setAddExercise(!addExercise)}>
+        {addExercise ? "Add Lesson Instead?" : "Add Exercise Instead?"}
+      </button>
       {!addExercise ? <LessonForm /> : <ExerciseForm />}
     </div>
   );

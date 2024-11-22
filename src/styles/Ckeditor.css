@@ -1,0 +1,31 @@
+.ck-editor__main {
+  color: black;
+}
+.ck-editor__main p {
+  margin-top: 1rem;
+  background-color: white;
+  height: 20vh;
+  color: black;
+
+  border: none;
+}
+.ck-editor__main p:focus {
+  border-color: #bc6c25; /* Add a nice border color */
+  background-color: #ffffff; /* Subtle background change */
+  box-shadow: 0 0 8px rgba(171, 96, 21, 0.5); /* Glowing effect */
+}
+.ck-button {
+  background-color: #c05e3d !important;
+  font-size: 1.5rem !important;
+  padding: 0.5rem !important;
+  color: white !important;
+  width: 100%;
+  font-weight: bold !important;
+  border: none !important;
+  border-radius: 15px !important;
+  margin-top: 1rem !important;
+  transition: background-color 0.3s ease !important;
+}
+.ck-button:hover {
+  background-color: #a04931 !important; /* Slightly darker shade */
+}

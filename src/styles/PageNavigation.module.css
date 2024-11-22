@@ -1,8 +1,10 @@
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  background-color: #283618;
   /* width: 50vw; */
+  width: 100%;
+  max-height: 150px;
 }
 .container li {
   list-style-type: none;
@@ -11,7 +13,7 @@
 
 .link {
   color: white;
-  font-size: large;
+  font-size: 32px;
   text-decoration: none;
 }
 

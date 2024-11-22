@@ -1,0 +1,19 @@
+.lessonsContainer {
+  width: 100%;
+}
+.lessonsContainer button {
+  background-color: #c05e3d;
+  justify-content: end;
+  font-size: 1.5rem;
+  padding: 1rem;
+  max-width: 20%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+.lessonsContainer button:hover {
+  background-color: #a04931; /* Slightly darker shade */
+}

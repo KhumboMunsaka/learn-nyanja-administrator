@@ -1,0 +1,63 @@
+.exerciseContainer {
+  font-size: 32px;
+}
+.questionsContainer {
+  width: 100%;
+  background-color: red;
+}
+.wrapQuestions {
+  border: 1px solid #dda15e;
+  border-radius: 15px;
+  border-width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  display: grid;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.question,
+.options,
+.correctAnswer,
+.points {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.sectionSelector,
+.titleSelection {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 80%;
+  text-align: left;
+}
+.titleSelection {
+  margin-bottom: 3rem;
+}
+.wrapQuestions > div label,
+.sectionSelector label,
+.titleSelection label {
+  color: #080808;
+  font-size: 28px;
+}
+.wrapQuestions > div input,
+.wrapQuestions > div select,
+.titleSelection > select,
+.sectionSelector > select {
+  max-width: 80%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 28px;
+  color: black;
+  border: 2px solid transparent;
+  outline: none; /* Removes the default outline */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+.wrapQuestions > div input:focus {
+  border-color: #bc6c25; /* Add a nice border color */
+  box-shadow: 0 0 8px rgba(171, 96, 21, 0.5); /* Glowing effect */
+  background-color: #ffffff; /* Subtle background change */
+}

@@ -60,75 +60,84 @@ function Login() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Administrator Login</h1>
-      {!resetEmail ? (
-        <div className={styles.loginFormContainer}>
-          <form onSubmit={HandleSubmit} className={styles.loginForm}>
-            <p className={styles.errorMessage}>{errorMessage}</p>
-            <div className={styles.inputGroup}>
-              <label htmlFor="email" className={styles.label}>
-                Email address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="password" className={styles.label}>
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.buttonGroup}>
-              <Button className={styles.button}>Login</Button>
-            </div>
-          </form>
-          <button onClick={() => setResetEmail(true)} className={styles.button}>
-            Forgotten Password?
-          </button>
-        </div>
-      ) : (
-        <div className={styles.resetFormContainer}>
-          <form onSubmit={handleForgotSubmit} className={styles.resetForm}>
-            <p className={styles.resetMessage}>{resetMessage}</p>
-            <div className={styles.inputGroup}>
-              <label htmlFor="email" className={styles.label}>
-                Email address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.buttonGroup}>
-              <Button className={styles.button}>Reset Password</Button>
-            </div>
-          </form>
-          <button
-            onClick={() => setResetEmail(false)}
-            className={styles.button}
-          >
-            Back
-          </button>
-        </div>
-      )}
+      <div className={styles.backgroundImage}>
+        <img />
+      </div>
+      <div className={styles.form}>
+        <h1 className={styles.heading}>Administrator Login</h1>
+        {!resetEmail ? (
+          <div className={styles.loginFormContainer}>
+            <form onSubmit={HandleSubmit} className={styles.loginForm}>
+              <p className={styles.errorMessage}>{errorMessage}</p>
+              <div className={styles.inputGroup}>
+                <label htmlFor="email" className={styles.label}>
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter You Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label htmlFor="password" className={styles.label}>
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.buttonGroup}>
+                <button className={styles.button}>Login</button>
+              </div>
+            </form>
+            <button
+              onClick={() => setResetEmail(true)}
+              className={styles.button}
+            >
+              Forgotten Password?
+            </button>
+          </div>
+        ) : (
+          <div className={styles.resetFormContainer}>
+            <form onSubmit={handleForgotSubmit} className={styles.resetForm}>
+              <p className={styles.resetMessage}>{resetMessage}</p>
+              <div className={styles.inputGroup}>
+                <label htmlFor="email" className={styles.label}>
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.buttonGroup}>
+                <Button className={styles.button}>Reset Password</Button>
+              </div>
+            </form>
+            <button
+              onClick={() => setResetEmail(false)}
+              className={styles.button}
+            >
+              Back
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

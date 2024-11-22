@@ -9,6 +9,7 @@ import {
   getDoc,
   setDoc,
 } from "firebase/firestore"; // Firestore methods
+import styles from "../styles/ExerciseForm.module.css";
 
 function ExerciseForm() {
   // State to store questions, selected section, and selected lesson title
@@ -141,11 +142,11 @@ function ExerciseForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.exerciseContainer}>
       <h3>Add Exercise</h3>
 
       {/* Section Dropdown */}
-      <div>
+      <div className={styles.sectionSelector}>
         <label>For Which Section?</label>
         <select value={section} onChange={handleSectionChange}>
           <option value="">Select Section</option>
@@ -159,7 +160,7 @@ function ExerciseForm() {
       </div>
 
       {/* Lesson Title Dropdown */}
-      <div>
+      <div className={styles.titleSelection}>
         <label>Lesson Title</label>
         <select
           value={selectedLesson}
@@ -176,12 +177,12 @@ function ExerciseForm() {
       </div>
 
       {/* Questions Input */}
-      <div>
-        <h4>Questions</h4>
+      <h4>Questions</h4>
+      <div className={styles.questionContainer}>
         {questions.map((question, index) => (
-          <div key={index}>
-            <div>
-              <label>Question:</label>
+          <div key={index} className={styles.wrapQuestions}>
+            <div className={styles.question}>
+              <label>Question: {index + 1}</label>
               <input
                 type="text"
                 value={question.question}
@@ -192,7 +193,7 @@ function ExerciseForm() {
               />
             </div>
 
-            <div>
+            <div className={styles.options}>
               <label>Options (comma-separated):</label>
               <input
                 type="text"
@@ -204,7 +205,7 @@ function ExerciseForm() {
               />
             </div>
 
-            <div>
+            <div className={styles.correctAnswer}>
               <label>Correct Option (0-3):</label>
               <input
                 type="number"
@@ -221,7 +222,7 @@ function ExerciseForm() {
               />
             </div>
 
-            <div>
+            <div className={styles.points}>
               <label>Points:</label>
               <input
                 type="number"
@@ -231,18 +232,16 @@ function ExerciseForm() {
                 }
               />
             </div>
-
             <button type="button" onClick={() => handleRemoveQuestion(index)}>
               Remove Question
             </button>
-
-            <hr />
           </div>
         ))}
-
-        <button type="button" onClick={handleAddQuestion}>
-          Add Another Question
-        </button>
+        <div>
+          <button type="button" onClick={handleAddQuestion}>
+            Add Another Question
+          </button>
+        </div>
       </div>
 
       <button type="submit">Submit Exercise</button>

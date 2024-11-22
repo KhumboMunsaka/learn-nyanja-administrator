@@ -18,7 +18,7 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase.config"; // Import your Firebase configuration
-
+import "../styles/Ckeditor.css";
 import styles from "../styles/LessonForm.module.css";
 
 // Initialize Firestore
@@ -46,7 +46,6 @@ function LessonForm() {
         "sublessons" // subcollection name where lessons will go
       );
 
-      // Path: lessons -> section -> subcollection -> lesson title
       const lessonDocRef = doc(sublessonsCollectionRef, title); // Using title as document name
 
       // Set the lesson data in the document
@@ -69,17 +68,15 @@ function LessonForm() {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.smallScreen}>
-        Please Revert to using a larger screen to add lessons
-      </h3>
+      <h3>Add a Lesson</h3>
       <form onSubmit={handleSubmit}>
-        <h3>Add a Lesson</h3>
         <div className={styles.lessonTitle}>
           <label htmlFor="title">Lesson Title</label>
           <input
             type="text"
             name="title"
             id="title"
+            placeholder="Lesson Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -104,7 +101,7 @@ function LessonForm() {
               toolbar: {
                 items: ["undo", "redo", "|", "bold", "italic"],
               },
-              plugins: [Bold, Essentials, Italic, Paragraph, Undo],
+              plugins: [Essentials, Paragraph, Bold, Italic],
             }}
             onChange={(event, editor) => {
               const data = editor.getData();
