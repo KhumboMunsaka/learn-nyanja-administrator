@@ -1,35 +1,18 @@
 import { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import {
-  ClassicEditor,
-  Bold,
-  Essentials,
-  Italic,
-  Paragraph,
-  Undo,
-} from "ckeditor5";
-import {
-  getFirestore,
-  collection,
-  doc,
-  addDoc,
-  setDoc,
-  updateDoc,
-  arrayUnion,
-} from "firebase/firestore";
-import { db } from "../firebase/firebase.config"; // Import your Firebase configuration
+import { ClassicEditor, Bold, Essentials, Italic, Paragraph } from "ckeditor5";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase.config";
 import "../styles/Ckeditor.css";
 import styles from "../styles/LessonForm.module.css";
-
-// Initialize Firestore
-// const db = getFirestore(getFirebaseApp());
 
 function LessonForm() {
   const [title, setTitle] = useState("");
   const [section, setSection] = useState("");
   const [lessonText, setLessonText] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!title || !section || !lessonText) {
@@ -37,34 +20,38 @@ function LessonForm() {
       return;
     }
 
+    setShowModal(true); // Show modal for confirmation
+  };
+
+  const handleConfirm = async () => {
     try {
-      // Path: lessons -> section (e.g., "verb") -> subcollection "sublessons" -> lesson title
       const sublessonsCollectionRef = collection(
         db,
         "lessons",
-        section, // e.g., "verb"
-        "sublessons" // subcollection name where lessons will go
+        section,
+        "sublessons"
       );
 
-      const lessonDocRef = doc(sublessonsCollectionRef, title); // Using title as document name
+      const lessonDocRef = doc(sublessonsCollectionRef, title);
 
-      // Set the lesson data in the document
       await setDoc(lessonDocRef, {
         title,
         text: lessonText,
-        timestamp: new Date(), // Optional: Add a timestamp
+        timestamp: new Date(),
       });
 
       alert("Lesson added successfully!");
-      // Clear the form
       setTitle("");
       setSection("");
       setLessonText("");
+      setShowModal(false);
     } catch (error) {
       console.error("Error adding lesson: ", error);
       alert("Failed to add lesson. Try again.");
     }
   };
+
+  const handleCancel = () => setShowModal(false); // Close the modal
 
   return (
     <div className={styles.container}>
@@ -113,6 +100,32 @@ function LessonForm() {
           </button>
         </div>
       </form>
+
+      {showModal && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h4>Confirm Lesson Details</h4>
+            <p>
+              <strong>Title:</strong> {title}
+            </p>
+            <p>
+              <strong>Section:</strong> {section}
+            </p>
+            <p>
+              <strong>Lesson Text:</strong>
+            </p>
+            <div dangerouslySetInnerHTML={{ __html: lessonText }} />
+            <div className={styles.modalActions}>
+              <button onClick={handleConfirm} className={styles.confirmButton}>
+                Confirm
+              </button>
+              <button onClick={handleCancel} className={styles.cancelButton}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

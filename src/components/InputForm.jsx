@@ -84,12 +84,12 @@ function InputForm() {
           onRecordingComplete={(audio) => setSelectedAudio(audio)}
           recorderControls={recorderControls}
         />
-        <div
+        <span
           onClick={recorderControls.stopRecording}
           className={styles.stopRecording}
         >
-          Stop recording
-        </div>
+          Stop Recording
+        </span>
         <button onClick={() => handleAudio()} className={styles.submitButton}>
           Submit Word To Dictionary
         </button>
