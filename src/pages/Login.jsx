@@ -96,7 +96,7 @@ function Login() {
                   value={email}
                   placeholder="Enter You Email"
                   onChange={
-                    ((e) => setEmail(e.target.value), setErrorMessage(null))
+                    ((e) => setEmail(e.target.value))
                   }
                   className={styles.input}
                 />
@@ -111,7 +111,7 @@ function Login() {
                   name="password"
                   value={password}
                   onChange={
-                    ((e) => setPassword(e.target.value), setErrorMessage(null))
+                    ((e) => setPassword(e.target.value))
                   }
                   placeholder="Enter your password"
                   className={styles.input}
