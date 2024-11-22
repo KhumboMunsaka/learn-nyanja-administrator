@@ -29,8 +29,15 @@ function Login() {
     e.preventDefault();
 
     // add validation
-    if (email !== "khumbolane11@gmail.com") {
-      console.log("This user is not an admin");
+    if (
+      email !== "khumbolane11@gmail.com" ||
+      email !== "chimschibuta@gmail.com" ||
+      email !== "cheembelabusi@gmail.com" ||
+      email !== "malipengalusekelo77@gmail.com" ||
+      email !== "lukundonkapambala@gmail.com" ||
+      email !== "luzandombewe68@gmail.com"
+    ) {
+      setErrorMessage("This user is not an admin");
       return;
     }
 
