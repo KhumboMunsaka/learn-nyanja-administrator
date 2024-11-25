@@ -80,10 +80,11 @@ function LessonForm() {
             <option value="">Select Section</option>
             <option value="nouns">Nouns</option>
             <option value="verbs">Verbs</option>
+            <option value="verbsextensions">Verbs Extensions</option>
             <option value="adjectives">Adjectives</option>
-            <option value="adverbs">Adverbs</option>
             <option value="pronouns">Pronouns</option>
-            <option value="prepositions">Prepositions</option>
+            <option value="conjuctions">Conjuctions</option>
+            <option value="questions">Questions</option>
           </select>
         </div>
         <div className={styles.lessonText}>

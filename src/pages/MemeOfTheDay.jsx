@@ -14,7 +14,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 
 function MemeOfTheDay() {
-  const [translation, setTranslation] = useState(``);
+  const [translation, setTranslation] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [memeDate, setMemeDate] = useState(null);
 
