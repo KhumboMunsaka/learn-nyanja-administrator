@@ -79,11 +79,11 @@ function LessonForm() {
           <select value={section} onChange={(e) => setSection(e.target.value)}>
             <option value="">Select Section</option>
             <option value="nouns">Nouns</option>
+            <option value="adjectives">Adjectives</option>
             <option value="verbs">Verbs</option>
             <option value="verbsextensions">Verbs Extensions</option>
-            <option value="adjectives">Adjectives</option>
             <option value="pronouns">Pronouns</option>
-            <option value="conjuctions">Conjuctions</option>
+            <option value="conjunctions">Conjunctions</option>
             <option value="questions">Questions</option>
           </select>
         </div>
