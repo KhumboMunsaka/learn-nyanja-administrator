@@ -131,6 +131,9 @@
 .ck-editor__main p:focus {
   border: none;
 }
+.ck-editor__main p {
+  height: 100%;
+}
 /* Mobile-first approach */
 @media (max-width: 600px) {
   .meme-container {
