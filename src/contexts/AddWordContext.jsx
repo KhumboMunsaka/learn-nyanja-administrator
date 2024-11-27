@@ -48,6 +48,7 @@ export const AddWordProvider = ({ children }) => {
       handleAudio();
       alert("Word added successfully!");
       setIsLoading(false);
+      setSelectedAudio(null);
     } catch (error) {
       alert("Error Adding the Word");
       setIsLoading(false);
