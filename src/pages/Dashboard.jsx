@@ -27,7 +27,7 @@ function Dashboard() {
     <main className={styles.dashboardContainer}>
       <PageNavigation />
       <h3 className={styles.smallScreen}>
-        Please Revert to using a larger screen to add continue as an
+        Please Revert to using a larger screen to continue as an
         administrator
       </h3>
       <section className={styles.dashboard}>
